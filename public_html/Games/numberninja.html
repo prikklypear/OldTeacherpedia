@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Number Ninja</title>
+        <link rel="stylesheet" href="main.css">
+        
+        <script type="text/javascript">  
+            var FPS = 30;
+            
+            // Loops indefinietly5
+            setInterval(function() {
+                update();
+                draw();
+            }, 1000/FPS);
+            
+            var textX = 175;
+            var textY = 70;
+
+            function update() {
+                textX += 1;
+                textY += 1;
+
+            };
+
+            function draw() {
+                var canvasElement = document.getElementById("canvas");  
+                var ctx = canvas.getContext('2d');
+                // Title
+                ctx.fillStyle = "rgb(100,0,0)"
+                ctx.fillRect(0, 0, 800, 100);
+                ctx.fillStyle = "rgb(255, 255, 255)"
+                ctx.font = "70px Arial";
+                ctx.fillText("Number Ninja", 175, 70);  
+                // Title end
+
+                Button(50, 200, 100, 50);
+
+                function Button(x, y, w, h) {
+                    ctx.fillStyle = "rgb(200,0,0)";
+                    ctx.fillRect(x, y, w, h); 
+                    onclick = haveclick();
+                    
+                };
+                
+                function haveclick() {
+                    alert = "Clicked!";
+                }
+                
+                
+            };
+            
+        </script>
+        <Style type="text/css">
+            canvas {
+                border: black 1px solid;
+            }
+        
+        </Style>
+        
+    </head>
+    <body onload="draw();">
+
+        <canvas id="canvas" width="800" height="600">Number Ninja</canvas>
+        
+        <p id="unsupported"></p>
+        
+    </body>
+</html>
+

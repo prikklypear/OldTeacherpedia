@@ -1,0 +1,75 @@
+
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(webfontkit-20180906-034703/xccw_joined_1a-webfont.woff);
+}
+
+body {
+  background: white; 
+  font-family: arial;
+}
+page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+}
+
+.innerPage {
+    padding: 1000px;
+    margin: 1000px;
+
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+div {
+    font-family: myFirstFont;
+    font-size: 0.5em;
+}
+
+
+
+#border {
+    width: 21cm;
+}
+
+.label {
+    position: relative;
+    width: 6.4cm;
+    height: 3.8cm;
+    float: left;
+    border-radius: 5px;
+    padding: 0 0.2cm 0 0
+    /*border: 1px solid black;
+    border-radius: 5px;*/
+}
+
+.row {
+    position: relative;
+    margin-top: 1.3cm;
+    margin-left: 0.5cm;
+}
+
+
+p {
+    margin-left: 0.7cm;
+}
+
+.title {
+    text-decoration: underline;
+    margin: 5% 0 0 10%;
+}
+
+ul {
+    margin: 0;
+}

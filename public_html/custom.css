@@ -1,0 +1,26 @@
+
+:root {
+    --year1: #ffffc7;
+    --year2: #96fffb;
+    --year3: #ffce93;
+    --year4: #9aff99;
+    --year5: #ffccc9;
+    --year6: #cbcefb;
+}
+
+td {
+    height: 40px !important;
+}
+
+#footer {
+	background-color: #56bae4;
+}
+
+#bootstrap-override #footer a {
+	color: black;
+}
+
+#bootstrap-overrides #navbar a {
+	color: black;
+}
+

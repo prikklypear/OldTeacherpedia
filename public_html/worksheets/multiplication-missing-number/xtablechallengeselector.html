@@ -1,0 +1,44 @@
+<style>
+
+    body {
+        margin: auto;
+    }
+    
+    div {
+        text-align: center;
+    }
+    
+    .ximg {
+        max-width: 100px;
+    }
+
+</style>
+
+<div class="row">
+    <img class="ximg" src="worksheets/multiplication/images/multiply-9.png">
+    <img class="ximg" src="worksheets/multiplication/images/style-multiply-hi.png">
+    <img class="ximg" src="worksheets/multiplication/images/multiply-9.png">
+    <img class="ximg" src="worksheets/multiplication/images/style-multiply-hi.png">
+</div>
+
+<div>
+    <h2>Times Table Challenge!</h2>
+    <h3>Choose one or more multipliers and hit go to create a new worksheet.</h3>
+    <div id="warning"></div>
+<div>
+    <form name="xtableselector" action="worksheets/multiplication-missing-number/xtablechallenge.php" method="get">
+        <input type="checkbox" name="missing" id="yes" value="yes"> Missing Number <br /><br />
+        
+        <input type="checkbox" name="2" id="mult[]" value="2"> 2x <br />
+        <input type="checkbox" name="3" id="mult[]" value="3"> 3x <br />
+        <input type="checkbox" name="4" id="mult[]" value="4"> 4x <br />
+        <input type="checkbox" name="5" id="mult[]" value="5"> 5x <br />
+        <input type="checkbox" name="6" id="mult[]" value="6"> 6x <br />
+        <input type="checkbox" name="7" id="mult[]" value="7"> 7x <br /> 
+        <input type="checkbox" name="8" id="mult[]" value="8"> 8x <br />
+        <input type="checkbox" name="9" id="mult[]" value="9"> 9x <br />
+        <input type="checkbox" name="10" id="mult[]" value="10"> 10x <br />
+        <button type="submit">Go!</button>
+    </form>
+
+</div>

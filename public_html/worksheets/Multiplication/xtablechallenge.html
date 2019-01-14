@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <link rel="stylesheet" href="../css/worksheet.css">
+        <style type="text/css">
+body {
+  background: rgb(204,204,204); 
+  font-family: arial;
+}
+page {
+    background: white;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+}
+page[size="A4"] {  
+  width: 21cm;
+  height: 29.7cm; 
+}
+
+.innerPage {
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+ul li {
+    list-style: none;
+}
+
+@media print {
+  body, page {
+    margin: 0;
+    box-shadow: 0;
+  }
+}
+
+  #logo {
+    float-left; 
+    margin-left:600px; 
+    position: absolute; 
+    margin: none;
+    max-width: 150px;
+  }
+
+#mathsboy {
+    width: 100px;
+    position: relative;
+    left: 600px;
+    bottom: 20;
+    border: 3px solid #73AD21;
+}
+            table, th, td {
+                border: black 2px solid;
+                border-collapse: collapse;
+            }
+            
+            table {
+                width: 90%;
+                margin: auto;
+                margin-bottom: 10px;
+            }
+            
+            table, tr {
+                height: 58px;
+            }
+            
+            h2 {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 30pt;
+                padding: 15px 0 10px 0;
+            }
+            
+            p {
+                text-align: left;
+                margin: 0;
+                padding: 0;
+                margin-left: 10px;
+                font-size: 17pt;
+            }
+            
+            #leftclock {
+                position:absolute;
+                left: 100px;
+                top: 10;
+                padding: 0;
+                margin: 0;
+                width: 100px;
+                z-index: -1;
+            }
+            
+            #rightclock {
+                position: absolute;
+                left: 800px;
+                top: 1px;
+                padding: 0;
+                margin: 0;
+                width: 115px;
+                z-index: -1;
+            }
+            
+            #top td {
+                width: 1%;
+               
+            }
+
+        </style>
+            
+
+        
+    </head>
+    <body>
+        <page size="a4">
+        <div id="innerPage"></div>            
+        <div id="fixedWidth">
+            <div class="sections" id="questions">
+                <img id="leftclock" src="images/evil-alarm-clock-18436257.jpg" />
+                <h1>Times Table Challenge!</h1>
+                <img id="rightclock" src="images/evil-alarm-clock-18436241.jpg" />    
+                <table id="top">
+                    <tr>
+                        <td><p>Name: </p></td>
+                        <td><p>Previous score:</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>Date: </p></td>
+                        <td><p>Score:</p></td>
+                    </tr>
+                </table>
+                <br />
+            </div>
+            
+            <div class="footer" id="footer">M Pearson 2016</div>
+            <div class="page-break"></div>
+            
+            <div class="sections" id="answers">
+                <h1>Times Table Challenge!</h1>
+                <h2>What was your time?</h2>
+            </div>
+            
+        
+        <script>
+            var numbers = new Array(20);
+            var answersArrayCount = 0;
+            var answers = new Array(50);
+            var mults = [];
+            var two = getParameterByName('2');
+            var three = getParameterByName('3');
+            var four = getParameterByName('4');
+            var five = getParameterByName('5');
+            var six = getParameterByName('6');
+            var seven = getParameterByName('7');
+            var eight = getParameterByName('8');
+            var nine = getParameterByName('9');
+            var ten = getParameterByName('10');
+            arrayPush();
+            
+            
+            for(var index = 0; index < numbers.length; index++) {
+                numbers[index]= new Array(5);
+                for(var i = 0; i < numbers[index].length; i++) {
+                    var multiplier = Math.floor(Math.random() * 11+1);
+                    var number = mults[Math.floor(Math.random() * mults.length)];
+                    var answer = number * multiplier;
+                    var question = String(answersArrayCount + 1) + ") " + multiplier + " x " + number + " = ";
+                    numbers[index][i] = question;
+                    answers[answersArrayCount] = answer;
+                    answersArrayCount++;
+                }
+            }
+                
+            
+            var createTable = function(arraytable, type) {
+                var result = "<table>";
+                answersArrayCount = 0;
+                for(key in arraytable) {
+                    result += "<tr>";
+                    if(type === 1) {
+                        for(index in arraytable[key]) {
+                            result += "<td>" + "<p>" + arraytable[key][index] + "</p>" + "</td>";
+                        }
+                    } else {
+                        for(index in arraytable[key]) {
+                            result += "<td>" + "<p>" + arraytable[key][index] + answers[answersArrayCount] + "<p>" + "</td>";
+                            answersArrayCount++;
+                        }  
+                    }    
+                    result += "</tr>";
+                }
+                result += "</table>";              
+                return String(result);
+            }
+        
+            document.getElementById("questions").innerHTML += String(createTable(numbers, 1));
+            document.getElementById("answers").innerHTML += String(createTable(numbers, 0));
+            
+            // Get url
+            function getParameterByName(name, url) {
+                if (!url) {
+                  url = window.location.href;
+                }
+                name = name.replace(/[\[\]]/g, "\\$&");
+                var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                    results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+            
+            function arrayPush() {
+                if(two != null) {
+                    mults.push(two);
+                }
+                if(three != null) {
+                    mults.push(three);
+                }
+                if(four != null) {
+                    mults.push(four);
+                }
+                if(five != null) {
+                    mults.push(five);
+                }
+                if(six != null) {
+                    mults.push(six);
+                }
+                if(seven != null) {
+                    mults.push(seven);
+                }
+                if(eight != null) {
+                    mults.push(eight);
+                }
+                if(nine != null) {
+                    mults.push(nine);
+                }
+                if(ten != null) {
+                    mults.push(ten);
+                }
+            }
+            
+            
+                
+        </script>
+    </body>
+    
+    
+</html>
+        
+        
+        
+                
